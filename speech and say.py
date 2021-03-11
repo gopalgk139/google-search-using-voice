@@ -12,7 +12,7 @@ def speakText(command):
     engine.say(command)  
     engine.runAndWait()
     
-r.energy_threshold=5000
+r.energy_threshold=3500
 
 with sr.Microphone() as source:
     print("speak!")
@@ -20,11 +20,14 @@ with sr.Microphone() as source:
     try:
         text=r.recognize_google(audio)
         print("Did you say "+text)
-        speakText(text)
+        alp= ("did you say",text)
+        speakText(alp)
         url='https://www.google.com/search?q='
         search_url=url+text
         webbrowser.open(search_url)
     except:
-        printf("Can't recognize")
+        print("Can't recognize")
         
+ 
+
  
